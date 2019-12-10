@@ -1,0 +1,142 @@
+﻿
+
+{% include "admin/admin_common_header.html" %}
+<title>{% block title %}添加管理员 - 管理员管理 {% endblock %}</title>
+{% block header %}{% endblock %}
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+</head>
+<body>
+{% block head %}{% endblock %}
+
+<h1>{% block page_title %}{% endblock %}</h1>
+
+{% block main_content %}
+
+<article class="page-container">
+	<div class="form form-horizontal" id="form-admin-add" >
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>上级分类：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			  <select name="parent_id" id="parent_id" class="selectpicker show-tick form-control">
+         <option value="0">无</option>
+          {% if message %}
+                       {{ message| safe }}
+                    {% endif %}
+                          </select>
+		</div>
+	</div>
+	
+	<script type="text/javascript" >	
+	
+	$(function(){
+   $("#parent_id  option[value={{data.parent_id}}] ").attr("selected",true)              
+
+      });
+</script>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>权限名称：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="{% if data.name %}{{data.name}}{% endif %}" placeholder="" id="name" name="name"/>
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>权限URL：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" autocomplete="off" value="{% if data.name %}{{data.url}}{% endif %}" placeholder="权限地址" id="url" name="url"/>
+			
+			
+			<input type="hidden" name="field_name" value="{% if data.id %}{{data.id}}{% endif %}" id="id" name="name"/>
+		</div>
+	</div>
+	
+	
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>是否显示：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			  <select name="status" id="status" class="selectpicker show-tick form-control">
+         <option value="0">是</option>
+		 <option value="-1">否</option>
+         
+                          </select>
+		</div>
+	</div>
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="submit" name="submit" onclick="danji()" id="summit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;"/>
+		</div>
+	</div>
+	
+	</div>
+</article>
+
+
+{% endblock %}
+{% include "admin/admin_common_footer.html" %}
+{% block footr_css_js %}
+
+<!--_footer 作为公共模版分离出去-->
+
+<script src="{{ url_for('static',filename='lib/jquery/1.9.1/jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/layer/2.4/layer.js') }}"></script>
+<script src="{{ url_for('static',filename='static/h-ui/js/H-ui.min.js') }}"></script>
+<script src="{{ url_for('static',filename='static/h-ui.admin/js/H-ui.admin.js') }}"></script> 
+<!--/_footer 作为公共模版分离出去-->
+<!--请在下方写此页面业务相关的脚本-->
+<script src="{{ url_for('static',filename='lib/My97DatePicker/4.8/WdatePicker.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/datatables/1.10.0/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/laypage/1.2/laypage.js') }}"></script>
+<script type="text/javascript">
+function danji(){
+var name = $("#name").val();
+var url = $("#url").val();
+var id = $("#id").val();
+var parent_id=$("#parent_id").val();
+var status = $("#status").val();
+	$.ajax({
+			type: 'POST',
+			url: '{{ url_for('admin.admin_edit_permission') }}',
+			data : {　　　　　　　　　　　      
+　　　　　　　　name : name,
+                url:url,
+                id:id,
+                parent_id:parent_id,
+                status:status,				　  
+　　　　　　},	
+			success: function(data){
+                if(data.status==200){		
+				layer.msg('已修改成功!',{icon:1,time:2000});				
+				var index = parent.layer.getFrameIndex(window.name);//关闭窗口				
+				setTimeout("parent.layer.closeAll()",2000);  // parent.layer.closeAll()方法有效 
+                			
+				}
+              if(data.status==204){
+			  layer.msg('更新失败，您提交的url和已有url重名!',{icon:1,time:2000});				
+						
+			  
+			  }				
+			},
+			error:function(data) {
+				console.log(data.msg);
+			},
+		});
+
+}
+
+
+
+
+
+
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{url_for('static',filename='front/css/bootstrap.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='front/css/layui.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='front/css/style.css')}}">
+<script src="{{ url_for('static',filename='front/js/layui.js') }}"  charset="utf-8"></script>
+<script src="{{ url_for('static',filename='front/js/jquery-3.3.1.min.js') }}"  charset="utf-8"></script>
+<script src="{{ url_for('static',filename='front/js/bootstrap.min.js') }}"  charset="utf-8"></script>
+<script src="{{ url_for('static',filename='front/js/yxMobileSlider.js') }}"></script>
+<title>{%block title %} {% endblock %}</title>
+{% block header %}
+{% endblock %}
+</head>
+<body>
+<div class="main_nav navbar-fixed-top">
+<div class="header_top ">
+<div class="header_top_bg" id ="onepagebg">
+<div class="link_mobile">
+    <ul class="contact-links" >
+        <li>资讯热线 </li>
+         <li><span class="glyphicon glyphicon-earphone"></span><i class="fa fa-phone" aria-hidden="true"></i>13667650921</li>
+		<li>邮箱 </li> <li><span class="glyphicon glyphicon-envelope"></span>472888778@qq.com</li>
+    </ul>
+</div>
+<div class="link_nav">
+<ul>
+{% if session.username %}
+<li>{{session.username}}</li>
+<li><a href="{{ url_for('front.log_out') }}">注销</a></li>
+{% else %}
+<li><a href="register"><span class="glyphicon glyphicon-user"></span>注册</a></li>
+<li><a href="{{url_for('front.login')}}?url={{request.path}}"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+</li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+</div>
+<div class="main_first">
+<div class="logo_left">
+<img src="{{ url_for('static',filename='front/images/logo.png') }}" alt="">
+</div>
+    <div class="logo_right">
+<div class="search">
+            <form id="search-form" action="http://localhost/cms/public/api.php" method="get" target="_blank">
+                <div class="search-wrap">
+                    <input name="app" type="hidden" value="search" />
+                    <input type="text" class="search-query" name="q" placeholder="请输入关键词" value=""><button type="submit" class="search-btn"><i class="fa fa-search"></i> 搜索</button>
+					
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!--main_first结束-->
+<div class="nav">
+<ul>
+<li><a href="#">网站首页</a></li>	
+{% if cat %}
+{{cat| safe}}
+{% endif %}
+</ul>
+</div>
+</div>
+{% block body %}
+
+{% endblock %}
+{% block footetr %}
+{% endblock %}
+ <!--main-footer--> <footer class="main-footer" style="background: url(images/background/1.jpg);"> 
+ <div class="footer-top"> <div class="container"> 
+ <div class="row"> <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12"> 
+ <div class="about-widget"> 
+ <div class="footer-logo">
+ <figure> <a href="/index.html">
+ </a> </figure>
+ </div> <p>专注网站建设。</p> <p>我们非常荣幸地为中国大陆及港澳台, 超过1200个客户提供网站建设解决方案及服务.</p> 
+ </div> </div> 
+							 <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12"> 
+							 <div class="menu-link"> <div class="sec-title"> <h6>关于佳奇CMS</h6> </div> 
+							 
+							 
+  
+							 <ul> 
+							 
+						 <li   ><a class="  " href="/about/c1/"  > 品牌客户</a></li><li   ><a class="  " href="/about/c2/"  > 服务优势</a></li><li   ><a class="  " href="/about/c3/"  > 产品服务</a></li><li   ><a class="  " href="/about/c4/"  > 联系方式</a></li>
+							 
+							 </ul> 
+							 </div> </div> 
+							 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"> <div class="menu-link"> 
+							 <div class="sec-title"> <h6>技术支持</h6> </div> 
+							 <ul> 
+							 
+							  <li><a href="/Service/c1/"><i class="fa fa-angle-right" aria-hidden="true"></i>制作流程</a></li><li><a href="/Service/c2/"><i class="fa fa-angle-right" aria-hidden="true"></i>售后服务</a></li><li><a href="/Service/c3/"><i class="fa fa-angle-right" aria-hidden="true"></i>付款方式</a></li><li><a href="/Service/c4/"><i class="fa fa-angle-right" aria-hidden="true"></i>常见问题</a></li><li><a href="/Service/c5/"><i class="fa fa-angle-right" aria-hidden="true"></i>合同下载</a></li>
+
+
+
+							</ul> 
+							 
+							 
+							 
+							 </div> </div> <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"> 
+							 <div class="gallery-widget"> <div class="sec-title"> <h6>友情链接</h6> </div>
+							 <div class="clearfix"> <figure class="image">  </figure> </div> <div class="sec-title"> <h6></h6> </div> 
+							 <ul> <li><a href="" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li> 
+							 </ul> </div> </div> </div> </div> </div> <div class="footer-bottom"> <div class="container"> <div class="copyright-text text-center"> <p>
+							 <a href="">佳奇CMS</a> 2005-2018 &copy;重庆佳奇电子商务有限公司 版权所有. 渝ICP备<a href="http://www.miibeian.gov.cn">09003237号-1</a> </p> 
+							 </div> </div> </div> 
+							 </footer> <!--End main-footer-->
+
+
+
+</body>
+</html>

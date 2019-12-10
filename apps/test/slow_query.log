@@ -1,0 +1,40 @@
+[2019-02-05 07:50:57,994] {../..\apps\front\views.py:251} WARNING - 
+Context:<unknown>
+SLOW QUERY: SELECT jq_member.uid AS jq_member_uid, jq_member.username AS jq_member_username, jq_member._password AS jq_member__password, jq_member.email AS jq_member_email, jq_member.vatar AS jq_member_vatar, jq_member.nickname AS jq_member_nickname, jq_member.sex AS jq_member_sex, jq_member.telephone AS jq_member_telephone, jq_member.status AS jq_member_status 
+FROM jq_member 
+WHERE jq_member.username = %(username_1)s 
+ LIMIT %(param_1)s
+Parameters: {'username_1': 'zhangsan1', 'param_1': 1}
+START_TIME: 1.060769596
+Duration: 0.0058332809999999125
+
+[2019-02-05 07:54:28,371] {../..\apps\front\views.py:251} WARNING - 
+Context:<unknown>
+SLOW QUERY: SELECT jq_member.uid AS jq_member_uid, jq_member.username AS jq_member_username, jq_member._password AS jq_member__password, jq_member.email AS jq_member_email, jq_member.vatar AS jq_member_vatar, jq_member.nickname AS jq_member_nickname, jq_member.sex AS jq_member_sex, jq_member.telephone AS jq_member_telephone, jq_member.status AS jq_member_status 
+FROM jq_member 
+WHERE jq_member.username = %(username_1)s 
+ LIMIT %(param_1)s
+Parameters: {'username_1': 'zhangsan1', 'param_1': 1}
+START_TIME: 0.567189734
+Duration: 0.005793720000000002
+
+[2019-02-05 08:23:52,029] {../..\apps\front\views.py:251} WARNING - 
+Context:<unknown>
+SLOW QUERY: SELECT jq_member.uid AS jq_member_uid, jq_member.username AS jq_member_username, jq_member._password AS jq_member__password, jq_member.email AS jq_member_email, jq_member.vatar AS jq_member_vatar, jq_member.nickname AS jq_member_nickname, jq_member.sex AS jq_member_sex, jq_member.telephone AS jq_member_telephone, jq_member.status AS jq_member_status 
+FROM jq_member 
+WHERE jq_member.username = %(username_1)s 
+ LIMIT %(param_1)s
+Parameters: {'username_1': 'zhangsan1', 'param_1': 1}
+START_TIME: 0.555362371
+Duration: 0.0011196390000000056
+
+[2019-02-05 08:45:52,132] {../..\apps\front\views.py:251} WARNING - 
+Context:<unknown>
+SLOW QUERY: SELECT jq_member.uid AS jq_member_uid, jq_member.username AS jq_member_username, jq_member._password AS jq_member__password, jq_member.email AS jq_member_email, jq_member.vatar AS jq_member_vatar, jq_member.nickname AS jq_member_nickname, jq_member.sex AS jq_member_sex, jq_member.telephone AS jq_member_telephone, jq_member.status AS jq_member_status 
+FROM jq_member 
+WHERE jq_member.username = %(username_1)s 
+ LIMIT %(param_1)s
+Parameters: {'username_1': 'zhangsan1', 'param_1': 1}
+START_TIME: 1.212538763
+Duration: 0.007107460000000065
+

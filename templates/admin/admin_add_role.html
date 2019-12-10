@@ -1,0 +1,164 @@
+﻿
+{% include "admin/admin_common_header.html" %}
+<title>{% block title %}新建网站角色 - 管理员管理{% endblock %}</title>
+{% block header %}
+
+{% endblock %}
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+</head>
+<body>
+{% block head %}{% endblock %}
+
+<h1>{% block page_title %}{% endblock %}</h1>
+
+{% block main_content %}
+<article class="page-container">
+	<div class="form form-horizontal" id="form-admin-role-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="roleName" name="roleName"/>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">描述：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="description" name="description"/>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">网站角色：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+			
+				
+				
+				
+			{{message| safe}}
+				
+				
+				
+				
+				
+				
+				
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			
+				<button type="button" class="btn btn-success radius" id="admin-role-save" name="admin-role-save" onclick="ajax_post()" ><i class="icon-ok"></i> 确定</button>
+				
+				
+			</div>
+		</div>
+	</div>
+</article>
+
+
+
+
+
+{% endblock %}
+{% include "admin/admin_common_footer.html" %}
+{% block footr_css_js %}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="{{url_for('static',filename='lib/jquery/1.9.1/jquery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='lib/layer/2.4/layer.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/jquery.validation/1.14.0/jquery.validate.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/jquery.validation/1.14.0/validate-methods.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/jquery.validation/1.14.0/messages_zh.js') }}"></script>
+
+
+<script type="text/javascript">
+$(function(){
+
+	$(".permission-list dt input:checkbox").click(function(){
+		$(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+	});
+	$(".permission-list2 dd input:checkbox").click(function(){
+		var l =$(this).parent().parent().find("input:checked").length;
+		var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+		if($(this).prop("checked")){
+			$(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+			$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+		}
+		else{
+			if(l==0){
+				$(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+			}
+			if(l2==0){
+				$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+			}
+		}
+	});
+	
+	
+});
+
+function ajax_post(){
+
+var params = "";
+var name = $("#roleName").val();
+var description = $("#description").val();
+$("input[name=user-Character-1-0-0]:checked").each(function(index,element){
+      //第一个id不需要加前缀
+      if(index == 0) {
+       //params += "id=" +
+	   params += "" +
+        $(this).val();
+      }
+	  else {
+       //params += "&id=" +
+	   params += "," +
+        $(this).val();
+      }
+     });
+$("input[name=user-Character-0]:checked").each(function(index,element){ 
+     
+       
+	   params += "," +
+        $(this).val();
+      
+     });//拼接参数完成
+	 //alert("生成的拼接参数：" + params);
+	 
+	 $.ajax({
+			type: 'POST',
+			url: '{{ url_for('admin.admin_add_role') }}',
+			data : {　　　　　　　　　　　      
+　　　　　　　　name : name,
+                auths:params,
+                description:description,                				　  
+　　　　　　},	
+			success: function(data){
+                if(data.status==200){		
+				layer.msg('已提交成功!',{icon:1,time:2000});				
+				var index = parent.layer.getFrameIndex(window.name);//关闭窗口				
+				setTimeout("parent.layer.closeAll()",2000);  // parent.layer.closeAll()方法有效 
+                			
+				}
+              if(data.status==202){
+			  layer.msg('表单验证失败!',{icon:1,time:2000});				
+						
+			  
+			  }				
+			},
+			error:function(data) {
+				console.log(data.msg);
+			},
+		});
+	 
+}
+
+
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+
+{% endblock %}
+
+</body>
+</html>

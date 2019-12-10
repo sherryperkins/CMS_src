@@ -1,0 +1,227 @@
+{% extends 'front/base.html' %}
+
+
+{% block title %}新闻详情页{% endblock %}
+{% block header %}{% endblock %}
+{% block body %}
+
+<!--当前位置开始-->
+<div class="location">
+<ul>
+    <li>    网站首页> > 新闻资讯 > <a href="#">文章详情</a> </li>
+</ul>
+<script src="{{ url_for('static',filename='front/js/jquery-3.3.1.min.js') }}"  charset="utf-8"></script>
+<script>
+	  function getCookie(name) {
+      var cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+           var cookies = document.cookie.split(';');
+           for (var i = 0; i < cookies.length; i++) {
+               var cookie = jQuery.trim(cookies[i]);            
+               if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                   break;
+               }
+           }
+       }
+       return cookieValue;
+   }
+	
+	</script>
+
+</div>
+<!--当前位置结束-->
+
+<!--主体内容开始-->
+<div class="content">
+   <div class="container">
+
+       <div class="row">
+           <div class="col-md-9">
+              <div class="container-fluid">
+                 
+                  <div class="row info-content">
+                    {% if news1 %}
+                              <div class="col-md-12">
+                                  <div class="page-header article_title"><h1> {{news1.title}}</h1></div>
+								  <div class="article_info">
+								  <span><a href="http://localhost/cms">iCMS</a> http://localhost/cms</span>
+                        <span class="pubdate">{{news1.creat_time}}</span>
+                        <span class="source">出处：www.byxdz.com </span>
+                        <span class="author">作者：{{author}}</span>
+                                                <span class="editor">点击：{{news1.clicks}}</a></span>
+                        <span id="cmt_count" class="cmt_count"></span>
+								  </div>
+								<div class="article-desc">
+  <p><b>摘要：</b></p><p>{{news1.description}}..</p>
+</div>
+                                  <article class="article_body">
+{{news1.body|safe}}
+
+
+
+
+
+
+
+
+
+
+
+                                  </article>
+								  {% endif %}
+		   <div class="tags-link">
+		  <b>  <span class="glyphicon glyphicon-asterisk"></span>相关文章：</b>
+		   </div>
+<div class="prev-next">
+                      <div class="row">
+                          <div class="col-md-6"><p class="prev"><b>上一篇:</b> {% if news2 %}<a href="/article_details/{{news2.aid}}">{{news2.title}}</a>{% else %}没有了{% endif %}</p></div>
+                          <div class="col-md-6"><p class="next"><b>下一篇:</b>{% if news3 %}<a href="/article_details/{{news3.aid}}">{{news3.title}}</a>{% else %}没有了{% endif %}</p></div>
+                      </div>
+                  </div>
+<h5 class="page-header"><b>添加评论</b></h5>
+                                  <div class="comment_list">
+								   <div class="row">
+								   <div class="container-fluid">
+								   <div class="col-md-1"> <img style="width:40px;height:40px;max-height: 40px;max-width: 40px; min-width:40px ;overflow:hidden; "src="{{ url_for('static',filename='images/21.jpg') }}"  alt=""></div>
+								   <div class="col-md-11">
+								    <div class="container-fluid ">
+								   <div class="row  comment_details"><b>网友：youqq</b><span>2018-12-24 21:19</span></div>
+								   <div class="row  comment_details">评论内容</div>
+								    <!--回复的评论开始-->
+								    <div class="comment_reply">
+									<div class="row">
+									<div class="container-fluid">
+								   <div class="col-md-1"> <img style="width:40px;height:40px;max-height: 40px;max-width: 40px; min-width:40px ;overflow:hidden; "src="{{ url_for('static',filename='images/21.jpg') }}"  alt=""></div>
+								   <div class="col-md-11">
+								    <div class="container-fluid ">
+								   <div class="row  comment_details"><b>网友：张三</b><span>2018-12-24 21:19</span></div>
+								   <div class="row  comment_details">回复内容</div>
+									</div>
+									</div>
+									</div>
+									</div>
+									</div>
+								    <!--回复的评论结束-->
+								  
+								   								   </div>
+								   </div>
+								   </div>
+								   </div>
+								   
+								  
+                                      
+                                  </div>
+								  <h5 class="page-header"></h5>
+								  <!--分页代码开始-->
+    <div class="page">
+        <ul class="pagination">
+         <li class="disabled"><span>&laquo;上一页</span></li>
+  <li><a href="#">下一页&raquo;</a></li>
+    </ul>
+    </div>
+<!--分页代码结束-->
+ <h5 class="page-header"></h5>
+
+ <div class="alert-warning"><div class="warning"><span>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论！</span></div></div>
+<!--评论表单开始-->
+<form id="Form" action="" method="post" >
+<div class="comment-form">
+   <textarea i="comment_content" id="comment_content" name="comment_content" value="" class="form-control comment_content" placeholder="写下你的评论…"></textarea>
+ </div>
+          
+<div class="comment-command" style="display:block;">
+ <div class="row">
+ <div class="col-md-8">
+   <div class="comment-seccode">
+            <label for="seccode" class="control-label">验证码：</label>
+            <input type="text" maxlength="4" i="comment_seccode" class="seccode_form_control input-small" id="captcha" name="captcha" value=""  placeholder="请输入验证码">
+			<img id="code" src="..{{ url_for('admin.get_code') }}" onclick="ajax1()">		
+			{% for msg in get_flashed_messages(category_filter=['error'])  %}
+							 {{ msg }}
+							{% endfor %}
+								{% for msg in get_flashed_messages(category_filter=['ok']) %}
+                          {{ msg }}
+							{% endfor %}	
+			</div>
+			<input type="hidden" id="article_id" name="article_id" value="{{news1.aid}}">
+			<input type="hidden" id="article_title" name="article_title" value="{{news1.title}}">
+			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+			
+ </div>
+  <div class="col-md-4"> <button i="comment_add" class="btn btn-primary comment_add" type="submit"><i class="fa fa-check"></i> 评 论
+        </button>  <button i="comment_cancel" class="btn btn-primary comment_add" type="reset"><i class="fa fa-check"></i> 取消
+        </button></div>
+ </div>
+<script>
+    function ajax1() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '..{{ url_for('admin.get_code') }}', true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4){
+{#                console.log(xhr.responseText);#}
+                $('#code').attr('src', '..{{ url_for('admin.get_code') }}?'+Math.random())
+            }
+        };
+        xhr.send();
+    }	
+	  
+	
+	
+	
+	
+	</script>
+  </div> 
+</form>  
+<!--评论表单结束-->          
+    <h5 class="page-header"></h5>
+	</div>
+
+                  </div>
+
+
+
+
+              </div>
+           </div>
+           <div class="col-md-3 content-right">
+               <div class="title">
+                   <h2>热门资讯</h2>
+               </div>
+
+
+                <div class="container-fluid">
+				{% if news4 %}
+				{% for i in news4 %}
+                   <div class="row">
+                       <div class="col-md-5" style="margin:12px 0;padding:0;">
+                         <img src="{{ url_for('static',filename='images/111.jpg') }}" class="img-responsive" alt="">
+                      </div>
+                              <div class="col-md-7">
+                                  <h4><a href="/article_details/{{i.aid}}">{{i.title}}</a></h4>
+                              <p>点击次数：{{i.clicks}}</p>
+                              </div>
+                   </div>
+				   {% endfor %}
+{% endif %}
+
+
+
+
+
+				 
+               </div>
+           </div>
+       </div>
+   </div>
+  
+</div>
+
+
+<!--主体内容结束-->
+
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="{{url_for('static',filename='front/css/bootstrap.css')}}">
+	<script src="{{ url_for('static',filename='front/js/bootstrap.min.js') }}"  charset="utf-8"></script>
+<script src="{{ url_for('static',filename='front/js/jquery-3.3.1.min.js') }}"  charset="utf-8"></script>
+    <title>登录页面</title>
+	<style type="text/css">
+	*{
+	margin:0px;
+	padding:0px;	
+	}
+	body{
+	background-color:#F5FFFA;
+	}
+	.header{
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding-top:40px;	
+	}
+	.head{
+	width:400px;
+	height:70px;
+	vertical-align: middle;
+    text-align: left;  
+    margin:0px auto; 
+	
+	border: 1px solid #fff;
+	}
+	.head .logo{
+	margin:0px;
+	padding-top:5px;
+    float:left;	
+	}
+	.head span{
+	float:right;
+	margin:0px;
+	line-height:70px;
+	padding-right:8px;
+	font-size:20px;
+	}
+	
+	.main_div{
+	width:400px;
+	height:460px;
+    background-color:#fff;
+	border: 1px solid #fff;
+	font-size:14px;
+	vertical-align: middle;
+    text-align: left;  
+    margin:0px auto; 	
+	border-radius:4px;
+-moz-border-radius:4px; /* 老的 Firefox */
+box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);	
+	}
+	.flash{
+	color:red;
+	}
+	</style>
+</head>
+<body>
+<div class="header"></div>
+<div class="head">
+<div class="logo">
+<img src="{{ url_for('static',filename='front/images/logo.png') }}" alt="">
+</div>
+<span> <b>404页面</b></span>
+</div>
+
+<div class="main_div">
+<div class="container-fluid">
+<div class="row">
+<div class="col-mg-12" sytle="margin:0; padding-top:10px;">
+ <h1 class="text-center">真不巧，该页面没有找到额。。。。</h1>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+{% extends 'front/base.html' %}
+
+
+{% block title %}   首页{% endblock %}
+{% block header %}{% endblock %}
+{% block body %}
+<!--图片轮播开始-->
+
+<section id="banner_main">
+<div class="banner">
+<div class="slider">
+	  <ul>
+	 
+	  
+	  
+	  
+	
+	    <li><a href=""> <img src="{{url_for('static',filename='front/images/1.jpg')}}" class="img-responsive" alt=""></a>测试标题1</li>
+		<li><a href=""><img src="{{url_for('static',filename='front/images/2.jpg')}}" class="img-responsive" alt="">测试标题2</a></li>
+		<li><a href=""><img src="{{url_for('static',filename='front/images/3.jpg')}}" class="img-responsive" alt="">测试标题3</a></li>
+		<li><a href=""><img src="{{url_for('static',filename='front/images/4.jpg')}}" class="img-responsive" alt="">测试标题4</a></li>
+		
+	  </ul>
+	</div>
+  <script src="{{ url_for('static',filename='front/js/yxMobileSlider.js') }}"></script>
+  <script>
+    $(".slider").yxMobileSlider({width:1400,height:420,during:3000})
+  </script>
+
+</div>
+</section>
+<!--图片轮播结束-->
+
+<!--欢迎-->
+
+ <!--Service Section--> <section class="service-section"> <div class="container"> <div class="section-title text-center"> <h2>欢迎您走进高科技互联网技术服务公司</h2> <p>专注高端定制与设计的网站建设公司 我们是体验经济世界的构筑者，我们创造有价值的精彩体验。</p> </div>
+                            
+ 
+ 
+ 
+ </div> </section> <!--End Service Section-->
+
+
+
+<!--ad_main-->
+<section id="ad_main">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+            <div class="col-md-4">
+                <a href="http://www.maiziedu.com" target="_blank">
+                    <img src="{{url_for('static',filename='front/images/a.png')}}" class="img-responsive" alt=""/>
+                    <h3>Android开发</h3>
+                    <p>Android开发技术交流、问题求助、实战案例分享</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="http://www.maiziedu.com" target="_blank">
+                    <img src="{{url_for('static',filename='front/images/i.png')}}" class="img-responsive" alt=""/>
+                    <h3>IOS开发</h3>
+                    <p>iOS开发技术交流，海量iOS实战干货分享</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="http://www.maiziedu.com" target="_blank">
+                    <img src="{{url_for('static',filename='front/images/b.png')}}" class="img-responsive" alt=""/>
+                    <h3>嵌入式底层开发</h3>
+                    <p>底层嵌入式开发、实战案例等技术交流讨论</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bbs-->
+<!--典型案例--> <section class="gallery-section" style="background: url(images/background/3.jpg);"> 
+  <div class="container"> <div class="row">
+  <div class="col-lg-3 col-md-12"> 
+  <div class="section-title"> 
+  <h2 class="white-color">成功案例</h2>
+  </div> </div> <div class="col-lg-9 col-md-12">
+  <div class="gallery-filter"> 
+  <ul class="post-filter style-2 list-inline"> 
+ 
+  <li> <span> <a href="/case/">更多</a>>></span> </li> 
+  </ul> </div>
+  </div> 
+  </div> 
+  <div class="row filter-layout">
+  
+  
+   
+  
+  
+    <article class="col-lg-3 col-md-6 col-sm-6 col-xs-12 filter-item 10"> 
+  <div class="item"> 
+  <img src="{{ url_for('static',filename='front/images/anli.png') }}" width="370" height="190">
+  <div class="overlay"> 
+  <div class="top"> 
+  <div class="box"> 
+  <div class="content">
+  <a data-group="1" href="{{ url_for('static',filename='front/images/anli.png') }}" class="lightbox-image"><i class="fa fa-link"></i></a> 
+  </div> </div> </div> </div> </div>   
+  <div class="bottom"> <a href="#"><h4>欣和企业官方网站</h4></a> <p>政府企业</p> </div>
+  </article>
+
+  
+  
+  
+<article class="col-lg-3 col-md-6 col-sm-6 col-xs-12 filter-item 23"> 
+  <div class="item"> 
+  <img src="{{ url_for('static',filename='front/images/anli.png') }}" width="370" height="190">
+  <div class="overlay"> 
+  <div class="top"> 
+  <div class="box"> 
+  <div class="content">
+  <a data-group="1" href="{{ url_for('static',filename='front/images/anli.png') }}" class="lightbox-image"><i class="fa fa-link"></i></a> 
+  </div> </div> </div> </div> </div>   
+  <div class="bottom"> <a href="#"><h4>smartac官方网站建设</h4></a> <p>商铺商城</p> </div>
+  </article>
+
+  
+  
+ <article class="col-lg-3 col-md-6 col-sm-6 col-xs-12 filter-item 12"> 
+  <div class="item"> 
+  <img src="{{ url_for('static',filename='front/images/anli.png') }}" width="370" height="190">
+  <div class="overlay"> 
+  <div class="top"> 
+  <div class="box"> 
+  <div class="content">
+  <a data-group="1" href="{{ url_for('static',filename='front/images/anli.png') }}" class="lightbox-image"><i class="fa fa-link"></i></a> 
+  </div> </div> </div> </div> </div>   
+  <div class="bottom"> <a href="#"><h4>中国教育国际交流协会</h4></a> <p>教育培训</p> </div>
+  </article>
+
+  
+			
+<article class="col-lg-3 col-md-6 col-sm-6 col-xs-12 filter-item 13"> 
+  <div class="item"> 
+  <img src="{{ url_for('static',filename='front/images/anli.png') }}" width="370" height="190">
+  <div class="overlay"> 
+  <div class="top"> 
+  <div class="box"> 
+  <div class="content">
+  <a data-group="1" href="{{ url_for('static',filename='front/images/anli.png') }}" class="lightbox-image"><i class="fa fa-link"></i></a> 
+  </div> </div> </div> </div> </div>   
+  <div class="bottom"> <a href="#"><h4>房地产企业网站</h4></a> <p>房产建材</p> </div>
+  </article>
+
+  
+
+			
+				 
+				 
+				 </div>
+				 </div>
+				 </section> 
+<!--主要业务-->
+
+<section class="team-section"> <div class="container"> <div class="section-title text-center"> <h2>主要业务</h2> <p>我们坚信，为客户创造价值才是我们永恒的财富！！</p> </div> <div class="row"> <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"> <div class="image-holder"> <div class="image-box hardware"> <figure> <a href=""><img src="{{url_for('static',filename='front/images/m103.jpg')}}" alt=""></a> </figure> </div> <div class="image-text text-center"> <a href=""><h5>高端品牌网站定制</h5></a> <p>基于web的品牌表现 社会化媒体整合 品牌web视觉规范</p> <p><b>超高性价比</b></p> </div> </div> </div> <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"> <div class="image-holder"> <div class="image-box hardware"> <figure> <a href=""><img src="{{url_for('static',filename='front/images/tn102.jpg')}}" alt=""></a> </figure> </div> <div class="image-text text-center"> <a href=""><h5>移动互联网解决方案</h5></a> <p>微信、APP、WAP网站 响应式web设计</p> <p><b>一站式解决方案</b></p> </div> </div> </div> <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"> <div class="image-holder"> <div class="image-box hardware"> <figure> <a href=""><img src="{{url_for('static',filename='front/images/tn204.jpg')}}" alt=""></a> </figure> </div> <div class="image-text text-center"> <a href=" "><h5>复杂系统开发定制</h5></a> <p>拥有双软认证的CMS系统 大型站群及定制电商平台开发</p> <p><b>业务可定制</b></p> </div> </div> </div> <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"> <div class="image-holder"> <div class="image-box hardware"> <figure> <a href=" "><img src="{{url_for('static',filename='front/images/tn416.jpg')}}" alt=""></a> </figure> </div> <div class="image-text text-center"> <a href=" "><h5>用户体验优化</h5></a> <p>用户调研分析
+组织、流程、交互梳理UE、UI输出用户体验测试调研</p> <p><b>高效网站优化</b></p> </div> </div> </div> </div> </div> </section>
+<div class="clear"></div>
+<!--新闻列表开始-->
+<section class="tabbox">
+<div class="container">
+    <div class="aui-nav-content-box">
+	<div class="aui-nav-list-box">
+		<ul>
+			<li class="aui-current">
+				<a href="javascript:void(0)">行业新闻</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">公司动态</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">采购公告</a>
+			</li>
+
+		</ul>
+	</div>
+	<div class="aui-nav-list-tab">
+	<div class="aui-nav-list-item" style="display:block">
+        <div class="col-lg-6 col-md-12 col-xs-12 index_faq">
+	<dl>
+	{% if news1 %}
+	{% for i in news1 %}
+					<dt> <span>{{i.creat_time}}</span> <a href="#">{{i.title}}</a>  </dt>
+        
+	{% endfor %}	
+	{% endif %}				
+    </dl>
+        </div>
+
+
+	</div>
+
+	<div class="aui-nav-list-item" style="display:none;">
+	 <div class="col-lg-6 col-md-12 col-xs-12 index_faq">
+	<dl>
+		<dt> <span>2016-11-04</span> <a href="#">2.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+        <dt><span>2016-11-04</span> <a href="#"> 2.道指涨140点</a>   </dt>
+        <dt> <span>2016-11-04</span> <a href="#">2.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+        <dt><span>2016-11-04</span> <a href="#"> 2.道指涨140点</a>   </dt>
+        <dt> <span>2016-11-04</span> <a href="#">2.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+        <dt><span>2016-11-04</span> <a href="#"> 2.道指涨140点</a>   </dt>
+        <dt> <span>2016-11-04</span> <a href="#">2.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+        <dt><span>2016-11-04</span> <a href="#"> 2.道指涨140点</a>   </dt>
+        <dt> <span>2016-11-04</span> <a href="#">2.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+    </dl></div>
+        <div class='col-lg-6 col-md-12 col-xs-12 index_faq left-border'>
+            <dl>
+        <dt><span>2016-11-04</span> <a href="#"> 2.道指涨140点</a>   </dt>
+        <dt> <span>2016-11-04</span> <a href="#">2.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+        <dt><span>2016-11-04</span> <a href="#"> 2.道指涨140点</a>   </dt>
+
+    </dl>
+        </div>
+	</div>
+	<div class="aui-nav-list-item" style="display:none;">
+	 <div class="col-lg-6 col-md-12 col-xs-12 index_faq">
+	<dl>
+					<dt> <span>2016-11-04</span> <a href="#">3.美国大型银行财报强劲：美股高开 道指涨140点</a>  </dt>
+        <dt><span>2016-11-04</span> <a href="#"> 3.道指涨140点</a>   </dt>
+
+    </dl>
+        </div>
+	</div>
+</div>
+	</div>
+
+<script type="text/javascript">
+//tab切换
+$(function(){
+	$('.aui-nav-list-box ul li').click(function(){
+		$(this).addClass('aui-current').siblings().removeClass('aui-current');
+		$('.aui-nav-list-tab>div:eq('+$(this).index()+')').show().siblings().hide();
+	})
+});
+</script>
+</div>
+
+
+</section>
+        <!--新闻列表结束-->
+
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

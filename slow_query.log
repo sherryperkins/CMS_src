@@ -1,0 +1,16 @@
+[2019-02-12 18:12:37,664] {J:\python教材开发\python教材开发\python网站开发合稿\光盘\源代码\C15\15-1\apps\front\views.py:212} WARNING - 
+Context:<unknown>
+SLOW QUERY: SELECT jq_article_category.cat_id AS jq_article_category_cat_id, jq_article_category.parent_id AS jq_article_category_parent_id, jq_article_category.cat_name AS jq_article_category_cat_name, jq_article_category.keywords AS jq_article_category_keywords, jq_article_category.description AS jq_article_category_description, jq_article_category.cat_sort AS jq_article_category_cat_sort, jq_article_category.status AS jq_article_category_status, jq_article_category.dir AS jq_article_category_dir 
+FROM jq_article_category
+Parameters: {}
+START_TIME: 3.042915816
+Duration: 0.0013629810000002074
+
+[2019-02-12 18:12:37,689] {J:\python教材开发\python教材开发\python网站开发合稿\光盘\源代码\C15\15-1\apps\front\views.py:212} WARNING - 
+Context:<unknown>
+SLOW QUERY: SELECT jq_article.aid AS jq_article_aid, jq_article.cat_id AS jq_article_cat_id, jq_article.title AS jq_article_title, jq_article.shorttitle AS jq_article_shorttitle, jq_article.source AS jq_article_source, jq_article.keywords AS jq_article_keywords, jq_article.description AS jq_article_description, jq_article.body AS jq_article_body, jq_article.clicks AS jq_article_clicks, jq_article.picture AS jq_article_picture, jq_article.author_id AS jq_article_author_id, jq_article.allowcomments AS jq_article_allowcomments, jq_article.status AS jq_article_status, jq_article.create_time AS jq_article_create_time, jq_article.is_delete AS jq_article_is_delete 
+FROM jq_article
+Parameters: {}
+START_TIME: 3.045883977
+Duration: 0.0027968290000002227
+
